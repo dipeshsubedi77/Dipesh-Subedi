@@ -48,7 +48,7 @@ export const profileData: ProfileData = {
   name: "Dipesh",
   roleTitle: "Graphics Designer & AI Engineer",
   location: "San Francisco, CA 📍",
-  avatarUrl: "/src/assets/images/developer_memoji_avatar_1784430425590.jpg",
+  avatarUrl: "/images/avatar.jpg",
   bio: "Combining aesthetic vision with neural network structures. I design premium visual identities, layouts, and packagings while coding client-side intelligence and vector models.",
   skills: [
     "Figma", "Adobe Illustrator", "Photoshop", "Branding & Identity", "Packaging Design",
