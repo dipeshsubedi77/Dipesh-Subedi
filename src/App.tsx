@@ -544,7 +544,6 @@ export default function App() {
               </div>
             </motion.div>
           )}
-
           {view === "admin" && (
             <motion.div
               key="admin-page"
@@ -560,23 +559,10 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Footer with testing Admin ingress link */}
+          {/* Footer */}
       <footer className="w-full max-w-5xl mx-auto px-6 py-6 border-t border-neutral-200/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400 font-sans mt-auto" id="app-footer">
         <div>
           © {new Date().getFullYear()} {profile?.name || "Dipesh"}. All rights reserved.
-        </div>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => {
-              setView("admin");
-              window.history.pushState({}, "", "/admin");
-            }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200 bg-white hover:bg-neutral-50 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 transition-all font-mono font-bold tracking-wider text-[10px] shadow-xs cursor-pointer"
-            id="admin-testing-ingress-btn"
-          >
-            <Lock size={11} className="text-neutral-400" />
-            ADMIN CMS PANEL (TESTING)
-          </button>
         </div>
       </footer>
 
