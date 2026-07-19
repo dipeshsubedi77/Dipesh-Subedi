@@ -6,7 +6,11 @@ import { profileData } from "./src/data/profile";
 import { readDB, writeDB, saveBase64Image, ProjectCMS, readProfileDB, writeProfileDB } from "./server-db";
 
 const ADMIN_TOKEN = "dipesh_admin_secret_token_session";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
+if (!ADMIN_PASSWORD) {
+  console.warn("WARNING: ADMIN_PASSWORD is not set. Admin features may not be accessible.");
+}
 
 async function startServer() {
   const app = express();
@@ -49,6 +53,9 @@ async function startServer() {
   // API Route for Admin Login
   app.post("/api/admin/login", (req, res) => {
     const { password } = req.body;
+    if (!ADMIN_PASSWORD) {
+      return res.status(500).json({ error: "Admin login not configured" });
+    }
     if (password === ADMIN_PASSWORD) {
       res.json({ token: ADMIN_TOKEN });
     } else {
