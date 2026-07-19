@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  --font-display: "Poppins", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-cursive: "Dancing Script", cursive;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-brand-primary: #111827;
+  --color-brand-secondary: #6B7280;
+  --color-brand-accent: #3b82f6;
+  --color-bg-base: #F8F9FA;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg-base);
+  color: var(--color-brand-primary);
+  font-family: var(--font-sans);
+}
+
+/* Sleek Interface Custom Classes */
+.card {
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  padding: 1.25rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: #D1D5DB;
+}
+
+/* Aceternity Style Interactive Cards */
+.aceternity-card {
+  position: relative;
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  padding: 1.25rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aceternity-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #3b82f6, #a855f7, #ec4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.aceternity-card:hover::before {
+  opacity: 1;
+}
+
+.aceternity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.08), 0 0 15px rgba(168, 85, 247, 0.1);
+  border-color: transparent;
+}
+
+/* Aceternity Background Beams and Blob Animations */
+@keyframes blob {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(40px, -40px) scale(1.15); }
+  66% { transform: translate(-30px, 30px) scale(0.9); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+.animate-blob {
+  animation: blob 12s infinite alternate ease-in-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.skill-chip {
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.15s ease;
+}
+
+.skill-chip:hover {
+  border-color: #9CA3AF;
+  background: #E5E7EB;
+}
+
+.chat-bubble {
+  border-radius: 14px 14px 2px 14px;
+}
+
+/* Custom scrollbar styling for high-end feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d4;
+}
+

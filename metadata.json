@@ -1,0 +1,6 @@
+{
+  "name": "AI Memoji Portfolio",
+  "description": "An interactive, beautifully crafted portfolio with a scrollable profile and an intelligent AI chat companion grounded in the owner's biography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
