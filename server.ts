@@ -20,9 +20,16 @@ async function startServer() {
     next();
   });
 
-  // Ensure NODE_ENV is set for production
-  if (!process.env.NODE_ENV) {
-    process.env.NODE_ENV = 'production';
+  // Detect production mode based on environment variables or execution path (compiled file inside dist/)
+  const isProduction = 
+    process.env.NODE_ENV === "production" || 
+    (typeof __dirname !== "undefined" && __dirname.includes("dist")) ||
+    (typeof process.argv[1] === "string" && process.argv[1].includes("dist"));
+
+  if (isProduction) {
+    process.env.NODE_ENV = "production";
+  } else if (!process.env.NODE_ENV) {
+    process.env.NODE_ENV = "development";
   }
 
   // Increase payload limit for base64 image uploads
