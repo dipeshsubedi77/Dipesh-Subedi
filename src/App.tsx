@@ -19,6 +19,7 @@ import Skills from "./components/Skills";
 import Fun from "./components/Fun";
 import Contact from "./components/Contact";
 import AIChatCompanion from "./components/AIChatCompanion";
+import Admin from "./components/Admin";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { profileData } from "./data/profile";
 
@@ -541,6 +542,18 @@ export default function App() {
                   ))}
                 </div>
               </div>
+            </motion.div>
+          )}
+          {view === "admin" && (
+            <motion.div
+              key="admin-page"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+              id="admin-view"
+            >
+              <Admin onBack={handleBackToHome} profile={profile} onUpdateProfile={(updated: any) => setProfile(updated)} />
             </motion.div>
           )}
         </AnimatePresence>
