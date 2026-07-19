@@ -39,6 +39,9 @@ async function startServer() {
   // Serve uploads directory as a static folder
   app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
+  // Serve src/assets directory statically in case database files refer to it directly in production
+  app.use("/src/assets", express.static(path.join(process.cwd(), "src/assets")));
+
   // Admin authorization middleware
   const requireAdmin = (req: express.Request, res: express.Response, next: express.NextFunction) => {
     const authHeader = req.headers["authorization"];
