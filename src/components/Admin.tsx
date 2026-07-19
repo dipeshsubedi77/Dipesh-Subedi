@@ -29,6 +29,7 @@ const Admin: React.FC<AdminProps> = ({ onBack, profile, onUpdateProfile }) => {
         setError(data.error || 'Login failed');
       }
     } catch (e) {
+      console.error("Login fetch error:", e);
       setError('An error occurred during login');
     }
     setIsLoading(false);
