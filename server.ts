@@ -6,11 +6,9 @@ import { profileData } from "./src/data/profile";
 import { readDB, writeDB, saveBase64Image, ProjectCMS, readProfileDB, writeProfileDB } from "./server-db";
 
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "dipesh_admin_secret_token_session";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
 
-if (!ADMIN_PASSWORD) {
-  console.warn("WARNING: ADMIN_PASSWORD is not set. Admin features may not be accessible.");
-}
+// Admin features are now always accessible with the default password if ADMIN_PASSWORD is not set.
 
 async function startServer() {
   const app = express();
