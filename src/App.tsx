@@ -19,7 +19,6 @@ import Skills from "./components/Skills";
 import Fun from "./components/Fun";
 import Contact from "./components/Contact";
 import AIChatCompanion from "./components/AIChatCompanion";
-import Admin from "./components/Admin";
 import ParticlesBackground from "./components/ParticlesBackground";
 import { profileData } from "./data/profile";
 
