@@ -22,11 +22,19 @@ const Admin: React.FC<AdminProps> = ({ onBack, profile, onUpdateProfile }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
       });
-      const data = await response.json();
       if (response.ok) {
+        const data = await response.json();
         setToken(data.token);
       } else {
-        setError(data.error || 'Login failed');
+        const text = await response.text();
+        let errMsg = 'Login failed';
+        try {
+          const parsed = JSON.parse(text);
+          errMsg = parsed.error || errMsg;
+        } catch (_) {
+          errMsg = `Server error (${response.status}): ${text.substring(0, 80)}`;
+        }
+        setError(errMsg);
       }
     } catch (e) {
       console.error("Login fetch error:", e);
